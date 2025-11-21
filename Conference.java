@@ -21,7 +21,6 @@ public class Conference {
 	}
 	//scans the file and loads the data into the memory will have less attendees on the file than what i put in tge array
 	//because of registration later so I will have to insert the new people into the file
-	//then we can randomize who gets in as the limit is 100, so pre-registered will always be first to get in
 	//then randomly choose the other last few people who registered
 	//loads both files
 	private Attendee[] attendeeArray = new Attendee[150];
