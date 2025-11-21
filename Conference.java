@@ -7,20 +7,31 @@ public class Conference {
 	//add private cars for later use
 	private int numTables;
 	//initialize the vars
-	public Conference(int nC, int nT) {
+	public Conference(int nC, int nT, int cNum, String cName) {
 		numTables = nT;
 		numCompanies = nC;
+		companiesNumber = cNum;
+		companiesName = cName;
 	}  
 	    // Add any getters and toString methods that you need
 	
-	public String getnumCompanies() {
-		return companyNum;
+	public int getnumCompanies() {
+		return numCompanies;
 	}
 	public int getnumTables() {
 		return numTables; 
 	}
+	public int getcompaniesNumber() {
+		return companiesNumber;
+	}
+	public String getcompaniesName() {
+		return companiesName;
+	}
+
+		
 	//scans the file and loads the data into the memory will have less attendees on the file than what i put in tge array
 	//because of registration later so I will have to insert the new people into the file
+	//then we can randomize who gets in as the limit is 100, so pre-registered will always be first to get in
 	//then randomly choose the other last few people who registered
 	//loads both files
 	private Attendee[] attendeeArray = new Attendee[150];
@@ -31,10 +42,13 @@ public class Conference {
         File fileC = new File("companies.txt");
         
         Scanner scan = new Scanner(file);
-        Scanner scan = new Scanner(fileC);
+        Scanner scanC = new Scanner(fileC);
         
         if (scan.hasNext()) {
             scan.nextLine();
+        }
+         if (scanC.hasNext()) {
+            scanC.nextLine();
         }
 	//loops through file and attendees and assigns which part of the array indicates what
 		int i = 0;
@@ -62,7 +76,22 @@ public class Conference {
 	//make 5 tables maybe?
 	//10 people per table make sure their cN isnt the same and that they arent the same person
 	public seatPlacement() {
+	int i = 0;
+		while (scan.hasNext() && i < attendeeArray.length) {
+			//splits the information into parts 
+			String line = scan.nextLine();
+			String[] parts = line.split(",");
+			int[] parts2 = line.split(",");
+			
+			int lN = parts[0];
+			int cN = parts[3];
 
+			String nL = parts[1];
+			String nF = parts[2];  
+		      //creates a new Attendee with the information inside of it
+			attendeeArray[i] = new Attendee(lN, nL, nF, cN);
+			i++;
+		}
 }
 	
     
