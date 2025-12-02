@@ -1,36 +1,33 @@
 public class Attendee {
-	//to hold info for each person
+    //to hold info for each person
 
-	//priv vars
+    private String listNum;
     private String nameLast;
     private String nameFirst;
-    
-    
-    private int companyNum;
-    private int listNum;
+    private String companyNum;
 
-//constructor for info from file or the input and load into thh object
-    public Attendee(String nL, String nF, int cN, int lN) {
-        nameLast = nL;
-        nameFirst = nF;
-        companyNum = cN;
-        listNum = lN;
+    //constructor for info from file or input and load into the object
+    public Attendee(String lN, String nL, String nF, String cN) {
+        listNum = lN
+        nameLast = nL
+        nameFirst = nF
+        companyNum = cN
     }
-//getters for info later
+
+    //getters for info later
     public String getnameFirst() {
-        return nameFirst;
+        return nameFirst
     }
 
     public String getnameLast() {
-        return nameLast;
+        return nameLast
     }
 
-    public int getcompanyNum() {
-        return companyNum;
+    public String getcompanyNum() {
+        return companyNum
     }
 
-    public int getlistNum() {
-        return listNum;
+    public String getlistNum() {
+        return listNum
     }
-
 }
