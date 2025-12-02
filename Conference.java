@@ -14,8 +14,8 @@ public class Conference {
 	private Attendee[] attendeeArray = new Attendee[150];
 
 	//company seat counter
-	//companySeats[c][t], chekc idf company c is alrdy at table t
-	private int[][] companySeats = new int[20][5];
+	//companySeats[c][t], chekc idf company c(20 diff companies allowed) is alrdy at table t
+	private int[][] companySeats = new int[20][10];
 	//initialize the vars
 	public Conference(int nC, int nT, int cNum, String cName) {
         numCompanies = nC;
@@ -88,7 +88,45 @@ public class Conference {
 	//10 people per table make sure their cN isnt the same and that they arent the same person
 	
 	//ask user if they want to add if less than 100 ppl
-	
+	private void fillTo100() {
+        int count = countAttendees();
+
+        while (count < 100) {
+
+            System.out.println("currently " + count + " attendees.");
+            System.out.println("want to add another attendee? (yes or no)");
+
+            String ans = registerScan.nextLine();
+		//makes sures that anyrthing other than yes will not be accepted
+            if (!ans.equals("yes")) {
+                break;
+            }
+
+            System.out.println("Enter last name:");
+            String nL = registerScan.nextLine();
+
+            System.out.println("Enter first name:");
+            String nF = registerScan.nextLine();
+
+            System.out.println("Enter company number:");
+            int cN = Integer.valueOf(registerScan.nextLine());
+
+            System.out.println("Enter list number:");
+            int lN = Integer.valueOf(registerScan.nextLine());
+
+            attendeeArray[count] = new Attendee(nL, nF, cN, lN);
+            count++;
+        }
+    }
+    //counts amy of valid attendees currently ie nothing has empty things or incomplete info
+	private int countAttendees() {
+        int count = 0;
+        while (count < attendeeArray.length && attendeeArray[count] != null) {
+            count++;
+        }
+        return count;
+    }
+	//seay placement is like 10 tables w 10 seats 
 	public seatPlacement() {
 	int i = 0;
 		while (scan.hasNext() && i < attendeeArray.length) {
