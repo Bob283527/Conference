@@ -8,26 +8,26 @@ public class Attendee {
 
     //constructor for info from file or input and load into the object
     public Attendee(String lN, String nL, String nF, String cN) {
-        listNum = lN
-        nameLast = nL
-        nameFirst = nF
-        companyNum = cN
+        listNum = lN;
+        nameLast = nL;
+        nameFirst = nF;
+        companyNum = cN;
     }
 
     //getters for info later
     public String getnameFirst() {
-        return nameFirst
+        return nameFirst;
     }
 
     public String getnameLast() {
-        return nameLast
+        return nameLast;
     }
 
     public String getcompanyNum() {
-        return companyNum
+        return companyNum;
     }
 
     public String getlistNum() {
-        return listNum
+        return listNum;
     }
 }
